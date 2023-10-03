@@ -81,13 +81,6 @@ print("Test set Accuracy: " , metrics.accuracy_score(y_test  , model.predict(x_t
 # In[14]:
 
 
-nx = [[ 4,5,6,5,5,4,6,7,2,3,4,8,8]]
-nxs= scaler.transform(nx)
-model.predict(nxs)
-
-
-# In[15]:
-
 import os.path
 
 path = './knnmodel_file'
