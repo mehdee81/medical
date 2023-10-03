@@ -11,18 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('cities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('family');
-            $table->string('password');
-            $table->string('national_code');
-            $table->string('father_name');
-            $table->integer('age');
             $table->foreignId('province_id')->constrained('provinces' , 'id')->cascadeOnDelete();
-            $table->foreignId('city_id')->constrained('cities' , 'id')->cascadeOnDelete();
-            $table->string('role');
-            $table->rememberToken();
+
             $table->timestamps();
         });
     }
@@ -32,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('cities');
     }
 };
