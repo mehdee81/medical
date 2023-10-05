@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('underlying_diseases', function (Blueprint $table) {
+        Schema::create('payment_medicines', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('desease_id')->constrained('diseases' , 'id')->cascadeOnDelete();
-            $table->foreignId('user_id')->constrained('users' , 'id')->cascadeOnDelete();
+            $table->integer('initial_price');
+            $table->integer('payable_price');
+            $table->foreignId('payment_id')->constrained('payments' , 'id')->cascadeOnDelete();
+            $table->foreignId('medicine_id')->constrained('medicines' ,'id')->cascadeOnDelete();
 
             $table->timestamps();
         });
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('underlying_diseases');
+        Schema::dropIfExists('payment_medicines');
     }
 };

@@ -10,8 +10,7 @@ class Insurance extends Model
     use HasFactory;
 
     protected $fillable = [
-        'code' ,
+        'name' ,
         'percentage' ,
-        'user_id'
     ];
 }

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->integer('price')->default(0);
-            $table->foreignId('user_id')->constrained('users' , 'id')->cascadeOnDelete();
+            $table->integer('total_price');
+            $table->string('tracking_code');
 
             $table->timestamps();
         });

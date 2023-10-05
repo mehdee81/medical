@@ -13,10 +13,8 @@ return new class extends Migration
     {
         Schema::create('insurances', function (Blueprint $table) {
             $table->id();
-            $table->string('code');
+            $table->string('name');
             $table->integer('percentage');
-            $table->foreignId('user_id')->constrained('users' , 'id')->cascadeOnDelete();
-
             $table->timestamps();
         });
     }
