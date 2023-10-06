@@ -26,6 +26,10 @@ pip install pandas
 pip install numpy
 pip install -U scikit-learn
 pip install pickle5
+cd ai/django
+python .\manage.py runserver 5000
+
+enjoy
 ```
 
 <h3>ِLaravel</h3>
