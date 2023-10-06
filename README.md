@@ -14,7 +14,13 @@
 
 ```
 cd Frontend
+```
+
+```
 npm install
+```
+
+```
 npm run dev
 ```
 
@@ -22,11 +28,29 @@ npm run dev
 
 ```
 pip install django
+```
+
+```
 pip install pandas
+```
+
+```
 pip install numpy
+```
+
+```
 pip install -U scikit-learn
+```
+
+```
 pip install pickle5
+```
+
+```
 cd ai/django
+```
+
+```
 python .\manage.py runserver 5000
 ```
 
