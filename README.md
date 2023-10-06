@@ -21,7 +21,10 @@ npm run dev
 <h3>ِDjango</h3>
 
 ```
-
+pip install django
+pip install pandas
+pip install numpy
+pip install -U scikit-learn
 ```
 
 <h3>ِLaravel</h3>
