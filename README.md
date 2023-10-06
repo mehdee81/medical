@@ -33,5 +33,13 @@ python .\manage.py runserver 5000
 <h3>ِLaravel</h3>
 
 ```
+cd Backend
+```
 
+```
+composer install
+```
+
+```
+php artisan serve
 ```
