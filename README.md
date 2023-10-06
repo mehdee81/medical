@@ -25,6 +25,7 @@ pip install django
 pip install pandas
 pip install numpy
 pip install -U scikit-learn
+pip install pickle5
 ```
 
 <h3>ِLaravel</h3>
