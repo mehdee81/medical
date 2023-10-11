@@ -11,6 +11,8 @@ class Answer extends Model
 
     protected $fillable = [
         'option_id' ,
-        'user_id'
+        'exam_id' ,
+        'question_id'
+
     ];
 }

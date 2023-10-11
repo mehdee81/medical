@@ -10,7 +10,7 @@ class Payment extends Model
     use HasFactory;
 
     protected $fillable = [
-        'price' ,
-        'user_id'
+        'total_price' ,
+        'tracking_code'
     ];
 }
