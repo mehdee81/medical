@@ -52,7 +52,6 @@ const GlobalStyles = styled.createGlobalStyle`
         font-feature-settings: "ss01";
         line-height: 1.6;
         text-align: right;
-        overflow: hidden;
         background-color: var(--color-green-0);
     }
 

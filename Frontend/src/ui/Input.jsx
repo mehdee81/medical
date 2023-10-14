@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { css, styled } from "styled-components";
 import { HiOutlineEye, HiOutlineEyeSlash } from "react-icons/hi2";
-// import { useFormState, useWatch } from "react-hook-form";
+import { useFormState, useWatch } from "react-hook-form";
 
 import Error from "./Error";
 
@@ -105,8 +105,8 @@ const Container = styled.div`
 
 function Input({ id, children, fullWidth, register, type, shape, control }) {
     const [isHidden, setIsHidden] = useState(true);
-    // const hasValue = Boolean(useWatch({ control, name: id }));
-    // const { errors } = useFormState({ control });
+    const hasValue = Boolean(useWatch({ control, name: id }));
+    const { errors } = useFormState({ control });
     return (
         <InputContainer $fullWidth={fullWidth}>
             <Label $hasValue={true} htmlFor={id} shape={shape} type={type}>
@@ -114,12 +114,12 @@ function Input({ id, children, fullWidth, register, type, shape, control }) {
             </Label>
             <Container>
                 <StyledInput
-                    // {...register}
+                    {...register}
                     placeholder={shape === "underline" ? children : ""}
                     shape={shape}
                     id={id}
                     type={type === "password" ? isHidden && "password" : type}
-                    // $hasError={Boolean(errors?.[id])}
+                    $hasError={Boolean(errors?.[id])}
                 />
                 <Icon onClick={() => setIsHidden((isHidden) => !isHidden)}>
                     {type === "password" && (
@@ -141,7 +141,7 @@ function Input({ id, children, fullWidth, register, type, shape, control }) {
                     )}
                 </Icon>
             </Container>
-            {/* {errors?.[id] && <Error>{errors[id].message}</Error>} */}
+            {errors?.[id] && <Error>{errors[id].message}</Error>}
         </InputContainer>
     );
 }
