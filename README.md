@@ -27,27 +27,14 @@ npm run dev
 <h3>ِDjango</h3>
 
 ```
-pip install django
+cd ai
+```
+```
+pip install -r requirements.txt
 ```
 
 ```
-pip install pandas
-```
-
-```
-pip install numpy
-```
-
-```
-pip install -U scikit-learn
-```
-
-```
-pip install pickle5
-```
-
-```
-cd ai/django
+cd django
 ```
 
 ```
