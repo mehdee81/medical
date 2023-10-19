@@ -2,67 +2,20 @@ import { styled } from "styled-components";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import Button from "../ui/Button";
-import Heading from "../ui/Heading";
-import SubHeading from "../ui/SubHeading";
-import Input from "../ui/Input";
+import Button from "../../ui/Button";
+import Heading from "../../ui/Heading";
+import SubHeading from "../../ui/SubHeading";
+import Input from "../../ui/Input";
 
-import Container from "../assets/container.png";
-import { signUpSchema } from "./../constants/dataPatterns";
-
-const StyledRegister = styled.div`
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    height: 100dvh;
-`;
-
-const FormSection = styled.section`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2.5rem 0;
-    row-gap: 2rem;
-`;
-
-const Form = styled.form`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 60%;
-    grid-gap: 2rem;
-    direction: rtl;
-`;
-
-const Line = styled.div`
-    position: absolute;
-    left: 0;
-    background-color: var(--color-green-600);
-    width: 2rem;
-    height: 100%;
-`;
-
-const GreetingSection = styled.section`
-    background: linear-gradient(
-            to right top,
-            color-mix(in srgb, var(--color-green-600), transparent 10%) 0%,
-            color-mix(in srgb, var(--color-green-500), transparent 20%) 100%
-        ),
-        url(${Container});
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
-const Greeting = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    row-gap: 2rem;
-    width: 60%;
-`;
+import { signUpSchema } from "../../constants/dataPatterns";
+import {
+    Form,
+    FormSection,
+    Greeting,
+    GreetingSection,
+    Line,
+    StyledAuth,
+} from "./Auth";
 
 function Register() {
     const { register, handleSubmit, control, reset } = useForm({
@@ -74,9 +27,9 @@ function Register() {
         reset();
     }
     return (
-        <StyledRegister>
+        <StyledAuth page="signup">
             <FormSection>
-                <Line />
+                <Line page="signup" />
                 <Heading type="h1" color="dark">
                     حساب جدید
                 </Heading>
@@ -179,7 +132,7 @@ function Register() {
                     <Button type="outline">ورود به حساب</Button>
                 </Greeting>
             </GreetingSection>
-        </StyledRegister>
+        </StyledAuth>
     );
 }
 

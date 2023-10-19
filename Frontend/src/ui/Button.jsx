@@ -4,11 +4,12 @@ const types = {
     primary: css`
         background-color: var(--color-green-500);
         color: var(--color-green-0);
-        border: none;
+        border: solid 2px var(--color-green-500);
 
         &:hover {
             background-color: var(--color-green-0);
             color: var(--color-green-500);
+            border: solid 2px var(--color-green-500);
         }
     `,
     outline: css`

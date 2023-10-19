@@ -31,3 +31,8 @@ export const signUpSchema = yup.object({
     password,
     password2,
 });
+
+export const loginSchema = yup.object({
+    national_code,
+    password,
+});
