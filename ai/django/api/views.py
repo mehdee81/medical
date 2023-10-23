@@ -27,7 +27,7 @@ from torchvision import transforms
 # 
  
 # request with post method
-# smaple: http://127.0.0.1:5000/api/lung_cancer_prediction/
+# sample: http://127.0.0.1:5000/api/lung_cancer_prediction/
 
 
 class Prediction(APIView):
