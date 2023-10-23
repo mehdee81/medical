@@ -47,8 +47,9 @@ class Prediction(APIView):
 
 
 # image classifier
-# smaple: http://127.0.0.1:5000/api/classifie-image/
-# and add image to body
+# sample: http://127.0.0.1:5000/api/classifie-image/
+# add image to body
+# Response labels : {0,1}
 # label 0 = cancer
 # label 1 = normal
 
