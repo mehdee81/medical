@@ -1,11 +1,11 @@
-import Login from "./pages/Auth/Login";
+import Admin from "./pages/Panel/Admin";
 import GlobalStyles from "./styles/GlobalStyles";
 
 function App() {
     return (
         <>
             <GlobalStyles />
-            <Login />
+            <Admin />
         </>
     );
 }

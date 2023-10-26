@@ -5,6 +5,10 @@ const types = {
         font-size: 4.5rem;
         font-weight: 1000;
     `,
+    h2: css`
+        font-size: 3.2rem;
+        font-weight: 800;
+    `,
 };
 
 const Heading = styled.p`
