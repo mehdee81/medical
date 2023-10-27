@@ -4,6 +4,7 @@ import Search from "../../ui/Search";
 import Heading from "./../../ui/Heading";
 import SubHeading from "./../../ui/SubHeading";
 import FilterTabs from "../../ui/FilterTabs";
+import Table from "../../ui/Table";
 
 const StyledPanel = styled.div`
     display: grid;
@@ -70,6 +71,7 @@ function Admin() {
                     </div>
                 </Header>
                 <FilterTabs tabs={usersTabs} />
+                <Table />
             </Main>
             <SideBar></SideBar>
         </StyledPanel>
