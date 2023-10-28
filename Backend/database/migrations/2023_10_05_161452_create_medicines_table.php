@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use \App\Entities\MedicineFields ;
 
 return new class extends Migration
 {
@@ -13,9 +14,9 @@ return new class extends Migration
     {
         Schema::create('medicines', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->boolean('is_insurance')->default(false);
-            $table->integer('price');
+            $table->string(MedicineFields::NAME->value);
+            $table->boolean(MedicineFields::IS_INSURANCE->value)->default(false);
+            $table->integer(MedicineFields::PRICE->value);
             $table->timestamps();
         });
     }

@@ -6,10 +6,10 @@ class InformationIncorrect
 {
     public function __invokable()
     {
-        return response()->json([
+        return [
             'error' => [
-                'message' => 'اطلاعات شما برای ورود نادرست است'
+                'message' => 'authentication failed'
             ]
-        ]) ;
+        ] ;
     }
 }

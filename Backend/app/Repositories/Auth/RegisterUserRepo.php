@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Auth;
 
+use App\Entities\UserFields;
 use App\Enums\UserRole;
 use App\Handlers\Auth\RegisterUserHandler;
 use App\Models\City;
@@ -16,15 +17,15 @@ class RegisterUserRepo implements RegisterUserInterface
     public function create($request)
     {
         $user = User::create([
-            'name' => $request->name ,
-            'family' => $request->family ,
-            'age' => $request->age  ,
-            'national_code' => $request->national_code ,
-            'province_id' => Province::where('name' , $request->province)->first()->id ,
-            'city_id' => City::where('name' , $request->city)->first()->id ,
-            'father_name' => $request->father_name ,
-            'password' => Hash::make($request->password) ,
-            'role' => UserRole::PATIENT
+            UserFields::FIRSTNAME->value => $request->firstname ,
+            UserFields::LASTNAME->value => $request->lastname ,
+            UserFields::AGE->value => $request->age  ,
+            UserFields::NATIONALCODE->value => $request->national_code ,
+            UserFields::PROVINCE_ID->value => Province::where('name' , $request->province)->first()->id ,
+            UserFields::CITY_ID->value => City::where('name' , $request->city)->first()->id ,
+            UserFields::FATHERNAME->value => $request->father_name ,
+            UserFields::PASSWORD->value => Hash::make($request->password) ,
+            UserFields::ROLE->value => UserRole::PATIENT
         ]);
 
         return new RegisterUserHandler($user);

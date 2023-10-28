@@ -3,6 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use \App\Entities\UsersDiseasesFields ;
+use \App\Entities\PrescriptionFields ;
+use \App\Entities\DiseaseFields ;
 
 return new class extends Migration
 {
@@ -13,8 +16,8 @@ return new class extends Migration
     {
         Schema::create('users_diseases', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('prescription_id')->constrained('prescriptions' , 'id')->cascadeOnDelete();
-            $table->foreignId('disease_id')->constrained('diseases' , 'id')->cascadeOnDelete();
+            $table->foreignId(UsersDiseasesFields::PRESCRIPTION_ID->value)->constrained(PrescriptionFields::MODEL->value , PrescriptionFields::ID->value)->cascadeOnDelete();
+            $table->foreignId(UsersDiseasesFields::DISEASE_ID->value)->constrained(DiseaseFields::MODEL->value , DiseaseFields::ID->value)->cascadeOnDelete();
 
             $table->timestamps();
         });

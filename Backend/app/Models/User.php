@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Entities\UserFields;
 use App\Enums\UserRole;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -19,15 +20,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'family' ,
-        'password',
-        'national_code' ,
-        'father_name' ,
-        'age' ,
-        'province_id' ,
-        'city_id' ,
-        'role' ,
+        UserFields::FIRSTNAME->value ,
+        UserFields::LASTNAME->value ,
+        UserFields::PASSWORD->value ,
+        UserFields::NATIONALCODE->value ,
+        UserFields::FATHERNAME->value ,
+        UserFields::AGE->value ,
+        UserFields::PROVINCE_ID->value ,
+        UserFields::CITY_ID->value ,
+        UserFields::ROLE->value
     ];
 
     /**

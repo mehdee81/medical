@@ -8,11 +8,11 @@ class RegisterUserHandler
     {
         if(! $data)
         {
-            return response()->json([
+            return [
                 'error' => [
-                    'message' => 'در ذخیره اطلاعات مشکلی بوجود آمده است'
+                    'message' => 'register failed'
                 ]
-            ]) ;
+            ];
         }
 
     }

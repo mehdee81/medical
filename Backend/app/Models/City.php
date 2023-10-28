@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Entities\CityFields;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,8 +13,8 @@ class City extends Model
     protected $with = ['province'] ;
 
     protected $fillable = [
-        'name' ,
-        'province_id'
+        CityFields::NAME->value ,
+        CityFields::PROVINCE_ID->value
     ];
 
 

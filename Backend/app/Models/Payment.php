@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Entities\PaymentFields;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,7 +11,7 @@ class Payment extends Model
     use HasFactory;
 
     protected $fillable = [
-        'total_price' ,
-        'tracking_code'
+        PaymentFields::TOTAL_PRICE->value ,
+        PaymentFields::TRACKING_CODE->value
     ];
 }

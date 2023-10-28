@@ -3,6 +3,10 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use \App\Entities\PaymentMedicineFields ;
+use \App\Entities\PaymentFields ;
+use \App\Entities\MedicineFields ;
+use \App\Enums\PaymentMedicineComplete;
 
 return new class extends Migration
 {
@@ -13,11 +17,11 @@ return new class extends Migration
     {
         Schema::create('payment_medicines', function (Blueprint $table) {
             $table->id();
-            $table->integer('initial_price');
-            $table->integer('payable_price');
-            $table->foreignId('payment_id')->constrained('payments' , 'id')->cascadeOnDelete();
-            $table->foreignId('medicine_id')->constrained('medicines' ,'id')->cascadeOnDelete();
-
+            $table->integer(PaymentMedicineFields::INITIAL_PRICE->value);
+            $table->integer(PaymentMedicineFields::PAYABLE_PRICE->value);
+            $table->foreignId(PaymentMedicineFields::PAYMENT_ID->value)->constrained(PaymentFields::MODEL->value , PaymentFields::ID->value)->cascadeOnDelete();
+            $table->foreignId(PaymentMedicineFields::MEDICINE_ID->value)->constrained(MedicineFields::MODEL->value , MedicineFields::ID->value)->cascadeOnDelete();
+            $table->boolean(PaymentMedicineFields::IS_COMPLETE->value)->default(PaymentMedicineComplete::FALSE->value);
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Entities\UsersDiseasesFields;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,7 +11,7 @@ class UsersDisease extends Model
     use HasFactory;
 
     protected $fillable = [
-        'prescription_id' ,
-        'disease_id'
+        UsersDiseasesFields::PRESCRIPTION_ID->value ,
+        UsersDiseasesFields::DISEASE_ID->value
     ];
 }

@@ -28,10 +28,43 @@ class RouteServiceProvider extends ServiceProvider
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
 
+        RateLimiter::for('admin', function (Request $request) {
+            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
+        });
+
+        RateLimiter::for('doctor', function (Request $request) {
+            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
+        });
+
+        RateLimiter::for('patient', function (Request $request) {
+            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
+        });
+
+        RateLimiter::for('pharmacy', function (Request $request) {
+            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
+        });
+
         $this->routes(function () {
             Route::middleware('api')
                 ->prefix('api')
                 ->group(base_path('routes/api.php'));
+
+            Route::middleware('api')
+                ->prefix('api')
+                ->group(base_path('routes/admin.php'));
+
+            Route::middleware('api')
+                ->prefix('api')
+                ->group(base_path('routes/doctor.php'));
+
+            Route::middleware('api')
+                ->prefix('api')
+                ->group(base_path('routes/patient.php'));
+
+            Route::middleware('api')
+                ->prefix('api')
+                ->group(base_path('routes/pharmacy.php'));
+
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));

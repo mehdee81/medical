@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use \App\Entities\CityFields ;
+use \App\Entities\ProvinceFileds ;
 
 return new class extends Migration
 {
@@ -13,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->foreignId('province_id')->constrained('provinces' , 'id')->cascadeOnDelete();
+            $table->string(CityFields::NAME->value);
+            $table->foreignId(CityFields::PROVINCE_ID->value)->constrained(ProvinceFileds::MODEL->value, ProvinceFileds::ID->value)->cascadeOnDelete();
 
             $table->timestamps();
         });

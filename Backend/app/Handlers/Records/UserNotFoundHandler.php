@@ -5,15 +5,15 @@ namespace App\Handlers\Records;
 class UserNotFoundHandler
 {
 
-    public function __invokable($data)
+    public function failed($data)
     {
         if(! $data)
         {
-            return response()->json([
+            return [
                 'error' => [
-                    'message' => 'کاربر مورد نظر یافت نشد'
+                    'message' => 'user not found'
                 ]
-            ]) ;
+            ] ;
         }
 
     }
