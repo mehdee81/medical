@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProvinceController;
 use App\Http\Controllers\Admin\QuestionController;
 use Illuminate\Support\Facades\Route;
 use  \App\Http\Controllers\Admin\ExamTypeController ;
+use \App\Http\Controllers\Admin\UserController ;
 
 
 /*
@@ -21,7 +22,7 @@ use  \App\Http\Controllers\Admin\ExamTypeController ;
 |
 */
 
-Route::middleware(['auth:sanctum'])->prefix('/admin/panel')->group(function (){
+Route::middleware(['auth:sanctum' , 'access-to-admin-panel'])->prefix('/admin/panel')->group(function (){
 
     Route::prefix('/city')->group(function (){
         Route::post('/add' , [CityController::class , 'add']);
@@ -73,4 +74,12 @@ Route::middleware(['auth:sanctum'])->prefix('/admin/panel')->group(function (){
         Route::post('/delete/{id}' , [ExamTypeController::class , 'delete']);
     });
 
+
+    Route::prefix('/users')->group(function (){
+        Route::post('/change-role/{id}' , [UserController::class , 'changeRole']);
+        Route::post('/delete/{id}' , [UserController::class , 'delete']);
+
+        Route::get('/get-all' , [UserController::class , 'getAll']);
+        Route::get('/{id}' , [UserController::class , 'get']);
+    });
 });

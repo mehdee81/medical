@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Entities\CityFields;
+use App\Entities\ProvinceFileds;
 use App\Entities\UserFields;
 use App\Enums\UserRole;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -51,4 +53,14 @@ class User extends Authenticatable
         'password' => 'hashed',
         'role' => UserRole::class
     ];
+
+    public function city()
+    {
+        return $this->belongsTo(City::class , UserFields::CITY_ID->value , CityFields::ID->value);
+    }
+
+    public function province()
+    {
+        return $this->belongsTo(Province::class , UserFields::PROVINCE_ID->value , ProvinceFileds::ID->value);
+    }
 }
