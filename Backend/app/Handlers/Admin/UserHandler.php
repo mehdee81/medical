@@ -29,14 +29,14 @@ class UserHandler
         {
             return [
                 'success' => [
-                    'message' => 'delete role successfuly'
+                    'message' => 'delete user successfuly'
                 ]
             ];
         }
 
         return [
             'error' => [
-                'message' => 'role not found'
+                'message' => 'user not found'
             ]
         ];
     }
