@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\QuestionController;
 use Illuminate\Support\Facades\Route;
 use  \App\Http\Controllers\Admin\ExamTypeController ;
 use \App\Http\Controllers\Admin\UserController ;
+use \App\Http\Controllers\Admin\MedicineController ;
 
 
 /*
@@ -78,8 +79,16 @@ Route::middleware(['auth:sanctum' , 'access-to-admin-panel'])->prefix('/admin/pa
     Route::prefix('/users')->group(function (){
         Route::post('/change-role/{id}' , [UserController::class , 'changeRole']);
         Route::post('/delete/{id}' , [UserController::class , 'delete']);
-
         Route::get('/get-all' , [UserController::class , 'getAll']);
         Route::get('/{id}' , [UserController::class , 'get']);
     });
+
+    Route::prefix('/medicine')->group(function (){
+        Route::post('/add' , [MedicineController::class , 'add']);
+        Route::post('/update/{id}' , [MedicineController::class , 'update']);
+        Route::post('/delete/{id}' , [MedicineController::class , 'delete']);
+        Route::get('/get-all' , [MedicineController::class , 'getAll']);
+        Route::get('/{id}' , [MedicineController::class , 'get']);
+    });
+
 });
