@@ -11,23 +11,23 @@ from .cnn_model import CNNModel
 from torchvision import transforms
 
 #   The order of sending features
-#   1-Air Pollution
-#   2-Alcohol use
-#   3-Dust Allergy
-#   4-OccuPational Hazards
-#   5-Genetic Risk
-#   6-chronic Lung Disease
-#   7-Balanced Diet
-#   8-Obesity
-#   9-Smoking
-#   10-Passive Smoker
-#   11-Chest Pain
-#   12-Coughing of Blood
-#   13-Fatigue
+#   1-Air Pollution ==> 1 - 8
+#   2-Alcohol use ==> 1 - 8 
+#   3-Dust Allergy ==> 1 - 8
+#   4-OccuPational Hazards ==> 1 - 8
+#   5-Genetic Risk ==> 1 - 7
+#   6-chronic Lung Disease ==> 1 - 7
+#   7-Balanced Diet ==> 1 - 7
+#   8-Obesity ==> 1 - 7
+#   9-Smoking ==> 1 - 8
+#   10-Passive Smoker ==> 1 - 8
+#   11-Chest Pain ==> 1 - 9
+#   12-Coughing of Blood ==> 1 - 7
+#   13-Fatigue ==> 1 - 9
 # 
  
 # request with post method
-# smaple: http://127.0.0.1:5000/api/lung_cancer_prediction/?Air Pollution=4&Alcohol use=5&Dust Allergy=6&OccuPational Hazards=5&Genetic Risk=5&chronic Lung Disease=4&Balanced Diet=6&Obesity=7&Smoking=2&Passive Smoker=3&Chest Pain=4&Coughing of Blood=8&Fatigue=8
+# sample: http://127.0.0.1:5000/api/lung_cancer_prediction/
 
 
 class Prediction(APIView):
@@ -47,8 +47,9 @@ class Prediction(APIView):
 
 
 # image classifier
-# smaple: http://127.0.0.1:5000/api/classifie-image/
-# and add image to body
+# sample: http://127.0.0.1:5000/api/classifie-image/
+# add image to body
+# Response labels : {0,1}
 # label 0 = cancer
 # label 1 = normal
 

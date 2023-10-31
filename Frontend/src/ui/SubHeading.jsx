@@ -5,6 +5,11 @@ const types = {
         font-size: 2rem;
         font-weight: 800;
     `,
+
+    h2: css`
+        font-size: 1.4rem;
+        font-weight: 800;
+    `,
 };
 
 const SubHeading = styled.p`
