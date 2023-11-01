@@ -33,4 +33,19 @@ class UserController extends Controller
         return response()->json($result);
     }
 
+
+    public function getDoctors(UserRepo $userRepo)
+    {
+        return new GetAllUserCollection($userRepo->getDoctors()) ;
+    }
+
+    public function getPatients(UserRepo $userRepo)
+    {
+        return new GetAllUserCollection($userRepo->getPatients()) ;
+    }
+
+    public function getPharmacy(UserRepo $userRepo)
+    {
+        return new GetAllUserCollection($userRepo->getPharmacy()) ;
+    }
 }

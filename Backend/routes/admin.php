@@ -79,8 +79,13 @@ Route::middleware(['auth:sanctum' , 'access-to-admin-panel'])->prefix('/admin/pa
     Route::prefix('/users')->group(function (){
         Route::post('/change-role/{id}' , [UserController::class , 'changeRole']);
         Route::post('/delete/{id}' , [UserController::class , 'delete']);
+
+        Route::get('/get-doctors' , [UserController::class , 'getDoctors']);
+        Route::get('/get-patients' , [UserController::class , 'getPatients']);
+        Route::get('/get-pharmacy' , [UserController::class , 'getPharmacy']);
         Route::get('/get-all' , [UserController::class , 'getAll']);
         Route::get('/{id}' , [UserController::class , 'get']);
+
     });
 
     Route::prefix('/medicine')->group(function (){

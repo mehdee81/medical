@@ -36,4 +36,20 @@ class UserRepo implements UserInterface
     {
         return User::findOrFail($id);
     }
+
+    public function getDoctors()
+    {
+        return User::where(UserFields::ROLE->value , UserRole::DOCTOR->value)->get() ;
+    }
+
+    public function getPatients()
+    {
+        return User::where(UserFields::ROLE->value , UserRole::PATIENT->value)->get() ;
+    }
+
+    public function getPharmacy()
+    {
+        return User::where(UserFields::ROLE->value , UserRole::PHARMACY->value)->get() ;
+
+    }
 }
