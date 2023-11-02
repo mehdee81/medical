@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'access-to-admin-panel' => \App\Http\Middleware\AccessToAdminPanel::class ,
+        'access-to-pharmacy-panel' => \App\Http\Middleware\AccessToPharmacyPanel::class ,
     ];
 }

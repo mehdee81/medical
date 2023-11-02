@@ -19,7 +19,7 @@ return new class extends Migration
             $table->id();
             $table->integer(PaymentMedicineFields::INITIAL_PRICE->value);
             $table->integer(PaymentMedicineFields::PAYABLE_PRICE->value);
-            $table->foreignId(PaymentMedicineFields::PAYMENT_ID->value)->constrained(PaymentFields::MODEL->value , PaymentFields::ID->value)->cascadeOnDelete();
+//            $table->foreignId(PaymentMedicineFields::PAYMENT_ID->value)->constrained(PaymentFields::MODEL->value , PaymentFields::ID->value)->cascadeOnDelete();
             $table->foreignId(PaymentMedicineFields::MEDICINE_ID->value)->constrained(MedicineFields::MODEL->value , MedicineFields::ID->value)->cascadeOnDelete();
             $table->boolean(PaymentMedicineFields::IS_COMPLETE->value)->default(PaymentMedicineComplete::FALSE->value);
             $table->timestamps();

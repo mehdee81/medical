@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 use \App\Entities\PrescribedMedicationFields ;
 use \App\Entities\PrescriptionFields ;
 use \App\Entities\MedicineFields ;
+use \App\Entities\DiseaseFields ;
+
 
 return new class extends Migration
 {
@@ -17,7 +19,7 @@ return new class extends Migration
         Schema::create('prescribed_medications', function (Blueprint $table) {
             $table->id();
             $table->foreignId(PrescribedMedicationFields::PRESCRIPTION_ID->value)->constrained(PrescriptionFields::MODEL->value , PrescriptionFields::ID->value)->cascadeOnDelete();
-            $table->foreignId(PrescribedMedicationFields::DISEASE_ID->value)->constrained(MedicineFields::MODEL->value , MedicineFields::ID->value)->cascadeOnDelete();
+            $table->foreignId(PrescribedMedicationFields::DISEASE_ID->value)->constrained(DiseaseFields::MODEL->value , DiseaseFields::ID->value)->cascadeOnDelete();
 
             $table->timestamps();
         });
