@@ -13,7 +13,7 @@ class UpdateMedicineRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return Auth::user()->role === UserRole::ADMIN;
+        return (Auth::user()->role === UserRole::ADMIN || Auth::user()->role === UserRole::PHARMACY);
     }
 
     /**
